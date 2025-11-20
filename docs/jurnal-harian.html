@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="id">
+<head>
+<link rel="manifest" href="/manifest.json">
+<script src="/spirit_pwa_premium.js"></script>
+<script>
+ if('serviceWorker' in navigator){
+   navigator.serviceWorker.register('/service-worker.js');
+ }
+</script>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jurnal Harian — Jurnal Roh Kudus</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="site-header container">
+  <div>
+    <h1>JURNAL HARIAN — ULTRA PREMIUM</h1>
+    <p class="lead">Template Harian 14 Kolom • Auto Ayat • Auto Renungan • Mode Gelap/Terang</p>
+    <div class="header-meta">
+      <div class="datebox">
+        <button id="prevDay" title="Hari sebelumnya">◀</button>
+        <input type="date" id="journalDate" />
+        <button id="nextDay" title="Hari berikutnya">▶</button>
+      </div>
+      <div class="controls">
+        <input id="username" placeholder="Masuk: nama Anda" />
+        <button id="saveProfile">Login</button>
+        <button id="toggleTheme">Mode Gelap / Terang</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <article class="card">
+    <form id="journalForm" autocomplete="off">
+      <section class="col auto" id="s1">
+        <h2>1. Tema Hari Ini</h2>
+        <input name="tema" id="tema" placeholder="Tema singkat..." />
+      </section>
+
+      <section class="col auto" id="s2">
+        <h2>2. Doa Pagi</h2>
+        <textarea name="doa" id="doa" placeholder="Doa pembuka..."></textarea>
+      </section>
+
+      <section class="col auto" id="s3">
+        <h2>3. Ayat Hari Ini</h2>
+        <div class="row-inline">
+          <input name="ayat_ref" id="ayat_ref" placeholder="Contoh: Mazmur 23:1" />
+          <button type="button" id="autofillAyat">Auto Ayat</button>
+        </div>
+        <textarea name="ayat_text" id="ayat_text" placeholder="Ayat / teks..."></textarea>
+      </section>
+
+      <section class="col auto" id="s4">
+        <h2>4. Penjelasan Firman</h2>
+        <textarea name="penjelasan" id="penjelasan" placeholder="Ringkasan renungan (Auto Renungan tersedia)"></textarea>
+        <div class="hint"><button type="button" id="autofillRenungan">Auto Renungan</button></div>
+      </section>
+
+      <section class="col choice" id="s5">
+        <h2>5. Inspirasi / Introspeksi</h2>
+        <select id="inspirasi_list" name="inspirasi_list">
+          <option value="">— Pilih Inspirasi —</option>
+          <option>Damai</option><option>Pengampunan</option><option>Kerendahan hati</option>
+          <option>Syukur</option><option>Pengharapan</option><option>Taat</option><option>Kepekaan Roh</option>
+        </select>
+        <input id="inspirasi_text" name="inspirasi_text" placeholder="Tambahan inspirasi..." />
+      </section>
+
+      <section class="col" id="s6">
+        <h2>6. Bisikan Roh Kudus</h2>
+        <textarea id="bisikan" name="bisikan" placeholder="Bisikan yang kamu rasakan..."></textarea>
+      </section>
+
+      <section class="col" id="s7">
+        <h2>7. Tanda-tanda Kecil</h2>
+        <textarea id="tanda" name="tanda" placeholder="Hal-hal kecil yang menarik perhatian..."></textarea>
+      </section>
+
+      <section class="col" id="s8">
+        <h2>8. Langkah Ketaatan</h2>
+        <textarea id="ketaatan" name="ketaatan" placeholder="Langkah nyata hari ini..."></textarea>
+      </section>
+
+      <section class="col choice" id="s9">
+        <h2>9. Deklarasi Iman</h2>
+        <select id="deklarasi_list" name="deklarasi_list">
+          <option value="">— Pilih Deklarasi —</option>
+          <option>Tuhan menyertaiku</option><option>Jalan Tuhan terbuka</option>
+          <option>Aku lebih dari pemenang</option><option>Roh Kudus memimpin</option>
+        </select>
+        <input id="deklarasi_text" name="deklarasi_text" placeholder="Deklarasi pribadi..." />
+      </section>
+
+      <section class="col" id="s10">
+        <h2>10. Syukur — 3 Hal</h2>
+        <input id="syukur1" name="syukur1" placeholder="1. ..." />
+        <input id="syukur2" name="syukur2" placeholder="2. ..." />
+        <input id="syukur3" name="syukur3" placeholder="3. ..." />
+      </section>
+
+      <section class="col" id="s11">
+        <h2>11. Pemeriksaan Hati (Mini Examen)</h2>
+        <label>A. Momen paling dekat dengan Tuhan</label>
+        <textarea id="examen1" name="examen1"></textarea>
+        <label>B. Momen paling jauh</label>
+        <textarea id="examen2" name="examen2"></textarea>
+        <label>C. Perbaikan untuk besok</label>
+        <textarea id="examen3" name="examen3"></textarea>
+      </section>
+
+      <section class="col choice" id="s12">
+        <h2>12. Pertanyaan Refleksi</h2>
+        <select id="refleksi_list" name="refleksi_list">
+          <option value="">— Pilih Pertanyaan —</option>
+          <option>Apa yang Tuhan ajarkan hari ini?</option>
+          <option>Apa yang harus dilepas?</option>
+          <option>Bagian mana aku belum taat?</option>
+          <option>Apa yang paling menyentuh?</option>
+          <option>Apa yang harus diperbaiki besok?</option>
+        </select>
+        <input id="refleksi_text" name="refleksi_text" placeholder="Tuliskan refleksi tambahan..." />
+      </section>
+
+      <section class="col big" id="s13">
+        <h2>13. Ruang Jurnaling</h2>
+        <textarea id="jurnaling" name="jurnaling" placeholder="Ruangan kosong untuk menulis..."></textarea>
+      </section>
+
+      <section class="col big" id="s14">
+        <h2>14. Catatan Bebas</h2>
+        <textarea id="catatan" name="catatan" placeholder="Catatan tambahan..."></textarea>
+      </section>
+
+      <div class="form-actions">
+        <button type="button" id="saveBtn">Simpan Lokal</button>
+        <button type="button" id="downloadPdf">Download / Print</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </article>
+</main>
+
+<footer class="footer container">
+  <small>© Jurnal Roh Kudus 2026 — Template Ultra Premium</small>
+</footer>
+
+<script src="spirit.js"></script>
+</body>
+</html>

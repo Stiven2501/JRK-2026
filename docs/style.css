@@ -1,0 +1,54 @@
+/* Ultra Premium Minimalist */
+:root{
+  --bg:#fbf7f0;
+  --card:#fff;
+  --gold:#b98e3a;
+  --muted:#6b5b40;
+  --accent:#f6eddc;
+  --maxwidth:1100px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Georgia, "Times New Roman", serif;
+  background:var(--bg);
+  color:var(--muted);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.container{max-width:var(--maxwidth);margin:0 auto;padding:28px}
+.site-header{padding:18px 0 8px 0}
+.site-header h1{
+  color:var(--gold);
+  margin:0;
+  font-size:40px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.lead{color:var(--muted);margin-top:6px;font-size:15px}
+.controls{margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.controls input{padding:8px;border:1px solid #e6dcca;border-radius:6px;background:#fff}
+.controls button{background:var(--gold);border:none;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer}
+.nav{margin-top:12px;display:flex;gap:10px;align-items:center}
+.card{background:var(--card);padding:22px;border-radius:10px;margin-top:18px;box-shadow:0 6px 26px rgba(0,0,0,0.06)}
+form{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.col{background:transparent}
+.col.big{grid-column:span 2}
+.col.auto{min-height:48px}
+.col h2{margin:0 0 8px 0;font-size:16px;color:var(--muted);font-weight:600}
+input[type="text"], textarea, select{
+  width:100%;padding:10px;border:1px solid #e9e1d6;border-radius:8px;background:transparent;font-family:inherit;font-size:14px;color:var(--muted)
+}
+textarea{min-height:120px;resize:vertical;padding-top:10px}
+.row-inline{display:flex;gap:8px}
+.choice select{background:#fff}
+.form-actions{grid-column:span 2;display:flex;gap:8px;justify-content:flex-end;padding-top:8px}
+.form-actions button{padding:10px 12px;border-radius:8px;border:1px solid #e6dcca;background:var(--gold);color:#fff;cursor:pointer}
+.small{font-size:13px;color:#8b7b65}
+.header-meta{display:flex;gap:12px;align-items:center;margin-top:8px}
+.datebox{padding:6px 10px;border-radius:8px;border:1px solid #e9e1d6;background:#fff}
+.footer{padding:18px 0;text-align:center;color:#8b7b65;font-size:13px;margin-top:18px}
+@media (max-width:900px){
+  form{grid-template-columns:1fr}
+  .col.big{grid-column:span 1}
+}
