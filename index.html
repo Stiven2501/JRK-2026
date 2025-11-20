@@ -1,1 +1,50 @@
-<!-- placeholder -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Jurnal Roh Kudus 2026</title>
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon512.png">
+    <link rel="apple-touch-icon" href="icon192.png">
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Jurnal Roh Kudus 2026</h1>
+        <p class="subtitle">🎁 Ultra Premium Edition</p>
+
+        <div class="menu">
+            <a class="btn" href="login.html">Masuk Jurnal</a>
+            <a class="btn" href="jurnal-harian.html">Jurnal Harian</a>
+            <a class="btn" href="offline_ayat.json" download>Download Ayat Offline</a>
+        </div>
+
+        <p class="small">© 2026 – Stiven DeWe. All Rights Reserved.</p>
+    </div>
+
+    <!-- PWA Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(() => console.log("Service Worker Registered"))
+                .catch(err => console.error("SW Failed:", err));
+        }
+    </script>
+
+</body>
+</html>
