@@ -1,20 +1,20 @@
 {
   "name": "Jurnal Roh Kudus 2026",
   "short_name": "JRK 2026",
-  "start_url": "/JRK-2026/index.html",
-  "scope": "/JRK-2026/",
+  "start_url": "/index.html",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "description": "Jurnal Roh Kudus 2026 – Jurnal Harian Rohani Premium",
   "icons": [
     {
-      "src": "/JRK-2026/icon192.png",
+      "src": "icon192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/JRK-2026/icon512.png",
+      "src": "icon512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
