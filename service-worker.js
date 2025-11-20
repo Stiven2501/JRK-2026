@@ -1,54 +1,43 @@
-const CACHE_NAME = "jrk-2026-v1";
-const ASSETS = [
-    "/",
-    "/index.html",
-    "/style.css",
-    "/manifest.json",
-    "/icon192.png",
-    "/icon512.png",
-    "/splash.png",
-    "/login.html",
-    "/jurnal-harian.html",
-    "/offline_ayat.json",
-    "/spirit.js",
-    "/spirit_pwa_premium.js",
-    "/background.svg"
+const CACHE_NAME = 'jrk-premium-v1';
+const FILES_TO_CACHE = [
+  '/index.html',
+  '/jurnal-harian.html',
+  '/style.css',
+  '/spirit.js',
+  '/manifest.json',
+  '/icon192.png',
+  '/icon512.png',
+  '/splash.png'
 ];
 
-// Install Service Worker
-self.addEventListener("install", (event) => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then((cache) => {
-            return cache.addAll(ASSETS);
-        })
-    );
-    self.skipWaiting();
+self.addEventListener('install', evt => {
+  evt.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(FILES_TO_CACHE);
+    })
+  );
+  self.skipWaiting();
 });
 
-// Activate
-self.addEventListener("activate", (event) => {
-    event.waitUntil(
-        caches.keys().then((keys) =>
-            Promise.all(
-                keys
-                    .filter((key) => key !== CACHE_NAME)
-                    .map((key) => caches.delete(key))
-            )
-        )
-    );
-    self.clients.claim();
+self.addEventListener('activate', evt => {
+  evt.waitUntil(
+    caches.keys().then(keyList => {
+      return Promise.all(keyList.map(key => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      }));
+    })
+  );
+  self.clients.claim();
 });
 
-// Fetch (Offline Mode)
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((cached) => {
-            return (
-                cached ||
-                fetch(event.request).catch(() =>
-                    caches.match("/offline_ayat.json")
-                )
-            );
-        })
+self.addEventListener('fetch', evt => {
+  if (evt.request.mode === 'navigate' || (evt.request.method === 'GET' && evt.request.headers.get('accept').includes('text/html'))) {
+    evt.respondWith(
+      fetch(evt.request).catch(() => caches.match('/index.html'))
     );
+    return;
+  }
+  evt.respondWith(
+    caches.match(evt.request).then(resp => resp || fetch(evt.request))
+  );
 });
