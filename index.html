@@ -1,50 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Jurnal Roh Kudus 2026</title>
-
-    <!-- PWA manifest -->
-    <link rel="manifest" href="manifest.json">
-
-    <!-- Icons -->
-    <link rel="icon" type="image/png" sizes="192x192" href="icon192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="icon512.png">
-    <link rel="apple-touch-icon" href="icon192.png">
-
-    <!-- Theme -->
-    <meta name="theme-color" content="#ffffff">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JURNAL ROH KUDUS FINAL — READY</title>
+<link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-
-    <div class="container">
-        <h1>Jurnal Roh Kudus 2026</h1>
-        <p class="subtitle">🎁 Ultra Premium Edition</p>
-
-        <div class="menu">
-            <a class="btn" href="login.html">Masuk Jurnal</a>
-            <a class="btn" href="jurnal-harian.html">Jurnal Harian</a>
-            <a class="btn" href="offline_ayat.json" download>Download Ayat Offline</a>
-        </div>
-
-        <p class="small">© 2026 – Stiven DeWe. All Rights Reserved.</p>
+<header class="site-header container">
+  <div>
+    <h1>JURNAL ROH KUDUS FINAL — READY</h1>
+    <p class="lead">Semua sistem: Login • Auto Ayat • Auto Renungan • 14 Kolom • Tema • Mode Gelap / Terang</p>
+    <div class="nav">
+      <a href="jurnal-harian.html"><button>Mulai Jurnal Hari Ini</button></a>
+      <a href="login.html"><button>Login</button></a>
     </div>
-
-    <!-- PWA Service Worker -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-                .then(() => console.log("Service Worker Registered"))
-                .catch(err => console.error("SW Failed:", err));
-        }
-    </script>
-
+  </div>
+</header>
+<main class="container">
+  <article class="card">
+    <h2>Selamat datang</h2>
+    <p>Website Jurnal Roh Kudus sudah siap. Klik tombol "Mulai Jurnal Hari Ini" untuk membuka template harian.</p>
+  </article>
+</main>
+<footer class="footer container">
+  <small>© Jurnal Roh Kudus 2026 — Template Ultra Premium</small>
+</footer>
 </body>
 </html>

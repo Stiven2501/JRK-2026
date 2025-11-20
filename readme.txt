@@ -1,0 +1,1 @@
+Part 4: Tidak ada file tersisa di ZIP asli. Placeholder.
