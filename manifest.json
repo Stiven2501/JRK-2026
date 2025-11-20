@@ -1,21 +1,24 @@
 {
-  "name": "Jurnal Roh Kudus",
-  "short_name": "JRK",
-  "start_url": "/index.html",
+  "name": "Jurnal Roh Kudus 2026",
+  "short_name": "JRK 2026",
+  "start_url": "/JRK-2026/index.html",
+  "scope": "/JRK-2026/",
   "display": "standalone",
-  "background_color": "#fbf7f0",
-  "theme_color": "#b98e3a",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+
+  "description": "Jurnal Roh Kudus 2026 – Ultra Premium Edition dibuat untuk perjalanan rohani harian, renungan, ayat offline, dan pendampingan Roh Kudus sepanjang tahun.",
+
   "icons": [
     {
-      "src": "icon192.png",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "/JRK-2026/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "icon512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/JRK-2026/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
-  ],
-  "description": "Jurnal Roh Kudus \u2014 Aplikasi harian rohani Ultra Premium"
+  ]
 }
